@@ -3,6 +3,9 @@
       (resources.Get "js/light_dark.js")
       (resources.Get "js/tabs.js") }}
 
+{{/* Custom script for switching between Fraktur and Antiqua */}}
+{{ $js = $js | append (resources.Get "js/typeface_toggle.js") }}
+
 {{/* Locally hosted code for KaTeX */}}
 {{ $js = $js | append
       (resources.Get "js/lib/katex.js")

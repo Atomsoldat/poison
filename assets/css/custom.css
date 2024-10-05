@@ -1,1 +1,138 @@
-/* Empty css file that users can override in their own /assets/css/custom.css file */
+/* unifraktur-maguntia */
+@font-face {
+    font-family: 'Unifraktur Maguntia';
+    font-style: normal;
+    font-weight: 400;
+    font-feature-settings: "cv11" ;
+    /* apparently this is more low level, no clue what it does yet
+    font-variation-settings: ""; */
+    src: local(''),
+         url('/fonts/UnifrakturMaguntia.ttf') format('truetype'); 
+}
+/* unifraktur-cook */
+@font-face {
+  font-family: 'Unifraktur Cook';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('/fonts/UnifrakturCook.ttf') format('truetype'); 
+}
+/* eb-garamond */
+@font-face {
+  font-family: 'Garamond';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('/fonts/EBGaramond08-Regular.ttf') format('truetype'); 
+}
+
+html {
+  font-family: "Unifraktur Maguntia", "Garamond", serif;
+    font-weight:400;
+}
+
+.btn-fraktur-antiqua .moon {
+  color: var(--moon-sun-color);
+}
+.btn-fraktur-antiqua .sun {
+  color: var(--moon-sun-color);
+}
+.btn-fraktur-antiqua {
+  display: flex;
+  /* centering of the letter within */
+  justify-content: center;
+  align-items: center;
+  /* perhaps we can move this to a generic class */
+  background-color: var(--moon-sun-background-color);
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 1em;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+/* align on the same height */
+.toggle-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sidebar-about h1 {
+  color: var(--sidebar-h1-color);
+  margin-top: 0;
+  font-weight:300;
+  font-size: 1.5em;
+  font-family: "Unifraktur Cook", serif;
+}
+
+.sidebar-about h1 {
+  color: var(--sidebar-h1-color);
+  margin-top: 0;
+  font-weight:300;
+  font-size: 1.5em;
+  font-family: "Unifraktur Cook", serif;
+}
+
+body.default-font {
+  font-family: "Unifraktur Maguntia", "Garamond", serif;
+}
+
+body.alternate-font {
+  font-family: 'Garamond', serif;
+}
+
+/*
+.class-selector
+thingy a
+thingy b
+thingy c
+
+for stuff like abc class="class-selector"
+
+element-selector
+thingy a
+thingy b
+thingy c
+
+for stuff like <h1> <>
+
+*/
+
+/*  Target h1 elements within the body that have the dark-theme class */
+:root {
+    /*color: #b7113b; /* Example color: Tomato */
+    /*--text-color: #FF5900; /* Colour from our Wiki */
+    --line-colour: #FF5900; /* Colour from our Wiki */
+    --link-colour: #FF5900; /* Colour from our Wiki */
+    --highlight-colour: #909090; /* Colour from our Wiki */
+    --silly-colour: #60ee86; /* Colour from our Wiki */
+}
+
+/* horizontal lines */
+body.dark-theme hr {
+    /*color: #b7113b; /* Example color: Tomato */
+    /*border-color: #FF5900; /* Colour from our Wiki */
+    border-color: var(--line-colour); /* Colour from our Wiki */
+}
+/*  Target h1 elements within the body that have the dark-theme class */
+
+.post-title,
+/* hyperlinks */
+.post a,
+.sidebar-about h1, a,
+.sidebar a,
+.article-toc li a
+  {
+      color: var(--link-colour); /* Colour from our Wiki */
+  }
+
+.post
+/* emphasised text */
+strong,
+/* headings */
+h1, h2, h3, h4, h5
+  {
+      color: var(--highlight-colour); /* Colour from our Wiki */
+  }
