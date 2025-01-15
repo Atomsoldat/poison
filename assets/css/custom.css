@@ -123,6 +123,7 @@ body.dark-theme hr {
 .post a,
 .sidebar-about h1, a,
 .sidebar a,
+.details,
 .article-toc li a
   {
       color: var(--link-colour); /* Colour from our Wiki */
