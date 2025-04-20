@@ -1,0 +1,10 @@
+{{ if hugo.IsMultilingual }}
+  <select class="btn language-select" onchange="location = this.value;">
+    {{ $pageLang := .Page.Lang }}
+    {{ range .Page.AllTranslations }}
+      <option value="{{ .RelPermalink }}" {{ if eq $pageLang .Lang }}selected{{ end }}>
+        {{ .Language.LanguageName }}
+      </option>
+    {{ end }}
+  </select>
+{{ end }}

@@ -20,6 +20,9 @@
         --code-block-background-color: {{ with .Site.Params.code_block_background_color }}{{ . }}{{ else }}#272822{{ end }};
         --moon-sun-color: {{ with .Site.Params.moon_sun_color }}{{ . }}{{ else }}#FFF{{ end }};
         --moon-sun-background-color: {{ with .Site.Params.moon_sun_background_color }}{{ . }}{{ else }}#515151{{ end }};
+        --button-label-color: {{ with .Site.Params.moon_sun_color }}{{ . }}{{ else }}#FFF{{ end }};
+        --button-background-color: {{ with .Site.Params.moon_sun_background_color }}{{ . }}{{ else }}#515151{{ end }};
+        --button-background-highlight-color: {{ with .Site.Params.moon_sun_background_color }}{{ . }}{{ else }}#616161{{ end }};
     }
     body.dark-theme {
         --text-color: {{ with .Site.Params.text_color_dark }}{{ . }}{{ else }}#eee{{ end }};

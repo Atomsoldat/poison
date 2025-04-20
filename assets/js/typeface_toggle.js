@@ -7,10 +7,12 @@ const antiquaA = document.querySelector(".antiquaA");
 const currentFont = localStorage.getItem("font") || "fraktur";
 
 if (currentFont === "antiqua") {
+    // add alternate font class
     document.body.classList.add("alternate-font");
     frakturA.style.display = 'block';
     antiquaA.style.display = 'none';
 } else {
+    // add default font class
     document.body.classList.add("default-font");
     frakturA.style.display = 'none';
     antiquaA.style.display = 'block';
@@ -36,4 +38,5 @@ fontBtn.addEventListener("click", function () {
         antiquaA.style.display = 'none';
     }
     localStorage.setItem("font", font);
+
 });

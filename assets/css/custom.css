@@ -31,32 +31,55 @@ html {
     font-weight:400;
 }
 
-.btn-fraktur-antiqua .moon {
-  color: var(--moon-sun-color);
-}
-.btn-fraktur-antiqua .sun {
-  color: var(--moon-sun-color);
-}
-.btn-fraktur-antiqua {
-  display: flex;
-  /* centering of the letter within */
-  justify-content: center;
-  align-items: center;
-  /* perhaps we can move this to a generic class */
-  background-color: var(--moon-sun-background-color);
-  width: 40px;
-  height: 40px;
+/* a single element can be passed multiple classes
+ * later classes override the earlier ones
+ * we use that to generalise the button class
+ */
+.btn {
   padding: 0;
   margin: 1em;
+  color: var(--button-label-color);
   border-radius: 50%;
-  border: none;
   cursor: pointer;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--button-background-color);
+  border: 1px solid #ccc;
 }
 
-/* align on the same height */
+/* this originally comes from the poison template, but we generalised the class */
+.btn-light-dark {
+}
+
+.btn-fraktur-antiqua {
+  /* centering of the letter within */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* align buttons on the same height */
 .toggle-buttons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    /* center vertically */
+    align-items: center;
+}
+
+.language-select {
+  font-family: inherit;
+  font-size: 1em;
+  background: var(--button-background-color);
+  width: 110px;
+  /* rounded corners */
+  border-radius: 80px;
+  /* we try to remove default OS styling here */
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -appearance: none;
+  /* end remove  default OS styling */
 }
 
 .sidebar-about h1 {
