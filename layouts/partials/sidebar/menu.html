@@ -21,7 +21,7 @@
                     </li>
                     {{ if $menu_item.HasChildren }}
                         <li class="sub-heading">
-                            {{ $menu_item.Pre }}
+                            {{ $menu_item.SubHeading }}
                         </li>
                         {{ range (first $menu_item.Limit .Pages) }}
                             <li class="bullet">
