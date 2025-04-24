@@ -1,24 +1,29 @@
 <nav>
     <ul class="sidebar-nav">
-
+	<!-- returns all Sections of the site, see https://gohugo.io/methods/site/sections -->
         {{ $sections := .Site.Sections.ByTitle }}
         {{ $taxonomies := .Site.Taxonomies }}
+	{{ $language := .Site.Language.Lang }}
+
         {{ range .Site.Params.menu }}
-        {{ $menu_item := . }}
-            {{ if eq (len $menu_item.URL) 0 }}
+            {{ $menu_item := . }}
+            {{ $expected_title := $menu_item.URL | strings.TrimPrefix "/" | strings.TrimPrefix $language | strings.TrimPrefix "/" | strings.TrimSuffix "/" | lower }}
+
+	    <!-- if URL is falsy or undefined, make a heading without a link -->
+            {{ if not $menu_item.URL }}
                 <li class="heading">{{ $menu_item.Name }}</li>
             {{ else if $menu_item.External }}
                 <li class="bullet">
                     <a href="{{ $menu_item.URL }}" target="_blank" rel="noopener noreferrer">{{ $menu_item.Name }}</a>
                 </li>
             {{ end }}
-
             {{ range $sections }}
-                {{ $trimmedURL := (lower (strings.TrimSuffix "/" (strings.TrimPrefix "/" $menu_item.URL))) }}
-                {{ if eq (lower .Title) (replace $trimmedURL "-" " ") }}
+		<!-- find section matching this menu item -->
+                {{ if eq (lower .Title) (replace $expected_title "-" " ") }}
                     <li class="heading">
                         <a href="{{ $menu_item.URL }}">{{ $menu_item.Name }}</a>
                     </li>
+		    <!-- this probably serves the purpose of adding pages in a section to the sidebar -->
                     {{ if $menu_item.HasChildren }}
                         <li class="sub-heading">
                             {{ $menu_item.SubHeading }}
@@ -31,6 +36,7 @@
                     {{ end }}
                 {{ end }}
             {{ end }}
+	    <!-- see if there is a matching taxonomy, that applies -->
             {{ range $name, $taxonomy := $taxonomies }}
                 {{ if eq (lower $name) (lower $menu_item.Name) }}
                     <li class="heading">
@@ -56,6 +62,5 @@
                 {{ end }}
             {{ end }}
         {{ end }}
-
     </ul>
 </nav>
