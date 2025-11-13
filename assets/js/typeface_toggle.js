@@ -4,7 +4,7 @@ const frakturA = document.querySelector(".frakturA");
 const antiquaA = document.querySelector(".antiquaA");
 
 // get font setting stored in local storage
-const currentFont = localStorage.getItem("font") || "fraktur";
+const currentFont = localStorage.getItem("font") || "antiqua";
 
 if (currentFont === "antiqua") {
     // add alternate font class
